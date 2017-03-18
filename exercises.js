@@ -58,7 +58,7 @@ console.log(kicks.buy());
 var plainBox = {};
 plainBox.color = "Pink";
 plainBox.size = 13;
-plainBox.contents = [''];
+plainBox.contents = [];
 
 console.log(plainBox);
 
@@ -246,8 +246,15 @@ console.log(printObj(sumObj));
         Invoke your function and pass in your object (which should be `plainBox`), store the result to a variable named 
         plainBoxResult and use `console.log` to inspect your results.
  */
-
-
+function putInPlainBox(object){
+  for(var i = 0; i<10; i++){
+  var randomNumber = Math.floor((Math.random() * 10) +1);
+  object.push(randomNumber);
+  }
+return object;
+}
+var plainBoxContents = putInPlainBox(plainBox.contents);
+console.log(plainBoxContents);
 /*
    Detecting transmission
         Declare a function named detectingTransmission and a single parameter which will be an object. Within this function 
@@ -258,8 +265,15 @@ console.log(printObj(sumObj));
 
         Invoke your function and pass in your stockCar object, store the result to a variable named isAutomaticTransmission and use `console.log` to inspect your results.
  */
+function detectingTransmission(beer){
+  if(beer.automaticTransmission === true){
+    return "true";
+  }else{
+    return "false";
 
-
+  }
+}
+console.log(detectingTransmission(stockCar));
 /*
    Who's driving this thing?!
         As you may have noticed that the `stockCar` doesn't have a driver!
@@ -271,7 +285,12 @@ console.log(printObj(sumObj));
         Invoke your function and pass in your objects, store the result to a variable named stockCarWithDriver, and inspect 
         your results. Consider using `plainPerson` as your driver.
  */
-
+function addDriver(object, person){
+  object.driver = person;
+  return object;
+}
+var stockCarWithDriver = addDriver(stockCar, "Shelbie");
+console.log(stockCarWithDriver);
 
 /*
     #Final Boss
